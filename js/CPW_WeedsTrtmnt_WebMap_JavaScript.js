@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
         var map = new Map("map", {
             basemap: "hybrid",
             center: [-105.7821, 39.5501],
-            zoom: 7
+            zoom: 7,
+            showLabels : true
         });
 
         var parksPoints = new FeatureLayer("https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/COParks_WeedTreat_Tracking/FeatureServer/0");    
