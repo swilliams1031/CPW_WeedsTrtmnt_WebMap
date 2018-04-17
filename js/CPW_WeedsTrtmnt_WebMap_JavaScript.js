@@ -24,9 +24,17 @@ document.addEventListener('DOMContentLoaded', function() {
             zoom: 7
         });
 
-        var featureLayer = new FeatureLayer("https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/COParks_WeedTreat_Tracking/FeatureServer");
+        var parksPoints = new FeatureLayer("https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/COParks_WeedTreat_Tracking/FeatureServer/0");    
+        map.addLayer(parksPoints);
 
-        map.addLayer(featureLayer);
+        var parksBoundaries = new FeatureLayer("https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/COParks_WeedTreat_Tracking/FeatureServer/3");
+        map.addLayer(parksBoundaries);
+
+        var parkIndexGrids = new FeatureLayer("https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/COParks_WeedTreat_Tracking/FeatureServer/2");
+        map.addLayer(parkIndexGrids);
+
+        var weedTreatments = new FeatureLayer("https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/COParks_WeedTreat_Tracking/FeatureServer/1");
+        map.addLayer(weedTreatments);
 
     });
 });
