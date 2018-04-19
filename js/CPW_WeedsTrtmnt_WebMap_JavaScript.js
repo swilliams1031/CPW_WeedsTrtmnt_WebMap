@@ -23,30 +23,42 @@ document.addEventListener('DOMContentLoaded', function() {
             showLabels : true
         });
 
-        var weedTreatments = new FeatureLayer("https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/COParks_WeedTreat_Tracking/FeatureServer/1");
+        var weedTreatments = new FeatureLayer("https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/COParks_WeedTreat_Tracking/FeatureServer/1", {
+            outFields: ["*"]
+        });
         map.addLayer(weedTreatments);
 
-        var parksPoints = new FeatureLayer("https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/COParks_WeedTreat_Tracking/FeatureServer/0");    
+        var parksPoints = new FeatureLayer("https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/COParks_WeedTreat_Tracking/FeatureServer/0", {
+            outFields: ["*"]
+        });    
         map.addLayer(parksPoints);
 
-        var parksBoundaries = new FeatureLayer("https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/COParks_WeedTreat_Tracking/FeatureServer/3");
+        var parksBoundaries = new FeatureLayer("https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/COParks_WeedTreat_Tracking/FeatureServer/3", {
+            outFields: ["*"]
+        });
         map.addLayer(parksBoundaries);
 
-        var cpwParkRoads = new FeatureLayer("https://services5.arcgis.com/ttNGmDvKQA7oeDQ3/ArcGIS/rest/services/CPWAdminData/FeatureServer/1",
-                                            {
-minScale: 8
-        }
-
-                                           );
+        var cpwParkRoads = new FeatureLayer("https://services5.arcgis.com/ttNGmDvKQA7oeDQ3/ArcGIS/rest/services/CPWAdminData/FeatureServer/1", {
+            outFields: ["*"],
+            minScale: 100000
+        });
         map.addLayer(cpwParkRoads);
+         
+         var cpwParkTrails = new FeatureLayer("https://services5.arcgis.com/ttNGmDvKQA7oeDQ3/ArcGIS/rest/services/CPWAdminData/FeatureServer/2", {
+            outFields: ["*"],
+            minScale: 100000
+        });
+         map.addLayer(cpwParkTrails);
 
-       // var cpwParkTrails = new FeatureLayer("https://services5.arcgis.com/ttNGmDvKQA7oeDQ3/ArcGIS/rest/services/CPWAdminData/FeatureServer/2");
-       // map.addLayer(cpwParkTrails);
+        var cpwFacilities = new FeatureLayer("https://services5.arcgis.com/ttNGmDvKQA7oeDQ3/ArcGIS/rest/services/CPWAdminData/FeatureServer/0", {
+            outFields: ["*"],
+            minScale: 100000
+        });
+        map.addLayer(cpwFacilities);
 
-        //var cpwFacilities = new FeatureLayer("https://services5.arcgis.com/ttNGmDvKQA7oeDQ3/ArcGIS/rest/services/CPWAdminData/FeatureServer/0");
-        //map.addLayer(cpwFacilities);
-
-        var parkIndexGrids = new FeatureLayer("https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/COParks_WeedTreat_Tracking/FeatureServer/2");
+        var parkIndexGrids = new FeatureLayer("https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/COParks_WeedTreat_Tracking/FeatureServer/2", {
+            outFields: ["*"]
+        });
         map.addLayer(parkIndexGrids);
 
 
