@@ -13,10 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
         "esri/layers/FeatureLayer",
         "dojo/domReady!"
     ],
-            function(
-            Map,
-             FeatureLayer
-            ) {
+            function(Map, FeatureLayer) 
+            {
 
         var map = new Map("map", {
             basemap: "hybrid",
@@ -25,17 +23,33 @@ document.addEventListener('DOMContentLoaded', function() {
             showLabels : true
         });
 
+        var weedTreatments = new FeatureLayer("https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/COParks_WeedTreat_Tracking/FeatureServer/1");
+        map.addLayer(weedTreatments);
+
         var parksPoints = new FeatureLayer("https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/COParks_WeedTreat_Tracking/FeatureServer/0");    
         map.addLayer(parksPoints);
 
         var parksBoundaries = new FeatureLayer("https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/COParks_WeedTreat_Tracking/FeatureServer/3");
         map.addLayer(parksBoundaries);
 
+        var cpwParkRoads = new FeatureLayer("https://services5.arcgis.com/ttNGmDvKQA7oeDQ3/ArcGIS/rest/services/CPWAdminData/FeatureServer/1",
+                                            {
+minScale: 8
+        }
+
+                                           );
+        map.addLayer(cpwParkRoads);
+
+       // var cpwParkTrails = new FeatureLayer("https://services5.arcgis.com/ttNGmDvKQA7oeDQ3/ArcGIS/rest/services/CPWAdminData/FeatureServer/2");
+       // map.addLayer(cpwParkTrails);
+
+        //var cpwFacilities = new FeatureLayer("https://services5.arcgis.com/ttNGmDvKQA7oeDQ3/ArcGIS/rest/services/CPWAdminData/FeatureServer/0");
+        //map.addLayer(cpwFacilities);
+
         var parkIndexGrids = new FeatureLayer("https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/COParks_WeedTreat_Tracking/FeatureServer/2");
         map.addLayer(parkIndexGrids);
 
-        var weedTreatments = new FeatureLayer("https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/COParks_WeedTreat_Tracking/FeatureServer/1");
-        map.addLayer(weedTreatments);
+
 
     });
 });
